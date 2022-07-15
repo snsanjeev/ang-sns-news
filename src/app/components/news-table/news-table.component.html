@@ -6,12 +6,17 @@
         <th>Author</th>
         <th>Is Top</th>
         <th>Published On</th>
+        <th>Category</th>
     </tr>
     <tr *ngFor="let news of news; let i = index" snsHighlight [ngClass]="{'even-row': (i % 2), 'odd-row': !(i%2)}">
         <td>{{i}}</td>
         <td snsUnderline>{{news.title}}</td>
         <td>{{news.author.name | uppercase}}</td>
         <td>{{news.isTopNEWS}}</td>
-        <td>{{news.publishedOn | date: "d MMMM yyyy" | uppercase}}</td>
+        <td>{{news.publishedOn | date: "d MMMM yyyy" | snsuppercase}}</td>
+        <td [ngSwitch]="news.category">
+            <span *ngSwitchCase="'Entertainment'">🎬</span>
+            <span *ngSwitchDefault>🌍</span>
+        </td>
     </tr>
 </table>

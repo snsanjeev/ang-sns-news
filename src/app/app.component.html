@@ -17,7 +17,7 @@
     <sns-article-callouts></sns-article-callouts>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <sns-news-table></sns-news-table>
         </div>
     </div>
@@ -26,17 +26,21 @@
         <div class="col-4">
             <sns-login-form></sns-login-form>
         </div>
-    </div>
-
-    <div class="row">
         <div class="col-4">
-            <input [(ngModel)]="userMessage" name="message"/>
-            <sns-lifecycle-demo (userclicked)="childToParentEvent($event)" [message]="userMessage" *ngIf="toggle"></sns-lifecycle-demo>
-            <button (click)="toggleLifecycleComponent()">Toggle lifecycle component.</button>
+            <div class="card text-center">
+                <div class="card-header">lifecycle demo</div>
+                <div class="card-body">
+                    <input [(ngModel)]="userMessage" name="message"/>
+                    <sns-lifecycle-demo (userclicked)="childToParentEvent($event)" [message]="userMessage" *ngIf="toggle"></sns-lifecycle-demo>
+                    
+                </div>
+                <div class="card-footer text-muted">
+                    <button (click)="toggleLifecycleComponent()">Toggle lifecycle component.</button>
+                </div>
+              </div>
+            
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-12">
             <sns-footer></sns-footer>
