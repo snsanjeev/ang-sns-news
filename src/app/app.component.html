@@ -15,6 +15,13 @@
         </div>
     </div>
     <sns-article-callouts></sns-article-callouts>
+
+    <div class="row">
+        <div class="col-4">
+            <sns-news-table></sns-news-table>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-4">
             <sns-login-form></sns-login-form>
@@ -23,7 +30,8 @@
 
     <div class="row">
         <div class="col-4">
-            <sns-lifecycle-demo *ngIf="toggle"></sns-lifecycle-demo>
+            <input [(ngModel)]="userMessage" name="message"/>
+            <sns-lifecycle-demo (userclicked)="childToParentEvent($event)" [message]="userMessage" *ngIf="toggle"></sns-lifecycle-demo>
             <button (click)="toggleLifecycleComponent()">Toggle lifecycle component.</button>
         </div>
     </div>
