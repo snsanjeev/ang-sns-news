@@ -11,7 +11,7 @@ export class ArticleCalloutsComponent implements OnInit {
 
   //public news : Article[] = this.callouts.topNews;
   // public news : Article[] =  this.callouts.getCallouts(3);
-  public news : Article[] =  [];
+  public news : Article[] | null = null;
   constructor(private callouts: CalloutsService) { }
 
   ngOnInit(): void {

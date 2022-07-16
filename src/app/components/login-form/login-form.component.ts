@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import { LoginForm } from 'src/interfaces/loginform';
 
 @Component({
@@ -9,9 +10,13 @@ import { LoginForm } from 'src/interfaces/loginform';
 export class LoginFormComponent implements OnInit {
 
   public form : LoginForm = { email : "", password : "" }
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  public emailChange() {
+    this.userService.user.next({ email : this.form.email})
   }
 
 }
