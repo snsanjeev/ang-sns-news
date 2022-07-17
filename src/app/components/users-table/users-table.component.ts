@@ -17,6 +17,7 @@ export class UsersTableComponent implements OnInit {
   city: string = "McKenziehaven"
 
   userList: any = []
+  
   ngOnInit(): void {
     this.users.getUsers("", "ASC", 10)
       .subscribe((users) => {
