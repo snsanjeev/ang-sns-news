@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   public emailChange() {
-    this.userService.user.next({ email : this.form.email})
+   // this.userService.user.next({ email : this.form.email})
   }
 
 }
