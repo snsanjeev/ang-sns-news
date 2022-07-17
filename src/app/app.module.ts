@@ -29,9 +29,13 @@ import { NewsDetailPageComponent } from './screens/news-detail-page/news-detail-
 import { environment } from 'src/environments/environment';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 
-const interceptors = []
+// All prod and non prod
+const interceptors = [
+
+];
 
 if (!environment.production) {
+  // non prod
   interceptors.push({provide: HTTP_INTERCEPTORS, useClass: FakeApiInterceptor, multi: true})
 }
 @NgModule({
