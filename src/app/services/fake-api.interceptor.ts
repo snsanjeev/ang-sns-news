@@ -23,6 +23,12 @@ export class FakeApiInterceptor implements HttpInterceptor {
     }
 
     function matchURL() {
+
+      
+      //  if( )
+
+      //  if( )
+
       if (url.endsWith("/top-news")) {
         return ok([{
           "id": "ff848d62-6b28-475a-94d7-efe927567118",
@@ -45,7 +51,7 @@ export class FakeApiInterceptor implements HttpInterceptor {
       }
       return next.handle(request);
     }
-    
+
     return of(undefined)
       .pipe(mergeMap(matchURL))
 

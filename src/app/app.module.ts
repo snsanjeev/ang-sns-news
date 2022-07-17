@@ -27,6 +27,13 @@ import { NewsListingPageComponent } from './screens/news-listing-page/news-listi
 import { NewsDetailPageComponent } from './screens/news-detail-page/news-detail-page.component';
 
 import { environment } from 'src/environments/environment';
+import { UsersTableComponent } from './components/users-table/users-table.component';
+
+const interceptors = []
+
+if (!environment.production) {
+  interceptors.push({provide: HTTP_INTERCEPTORS, useClass: FakeApiInterceptor, multi: true})
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +51,8 @@ import { environment } from 'src/environments/environment';
     UppercasePipe,
     HomepageComponent,
     NewsListingPageComponent,
-    NewsDetailPageComponent
+    NewsDetailPageComponent,
+    UsersTableComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,8 @@ import { environment } from 'src/environments/environment';
     HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass : FakeApiInterceptor, multi:true}
+    //{provide: HTTP_INTERCEPTORS, useClass : FakeApiInterceptor, multi:true}
+    ...interceptors
   ],
   bootstrap: [AppComponent]
 })
