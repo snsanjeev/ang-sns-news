@@ -28,6 +28,9 @@ import { NewsDetailPageComponent } from './screens/news-detail-page/news-detail-
 
 import { environment } from 'src/environments/environment';
 import { UsersTableComponent } from './components/users-table/users-table.component';
+import { PrivacyPolicyPageComponent } from './screens/privacy-policy-page/privacy-policy-page.component';
+import { ContactPageComponent } from './screens/contact-page/contact-page.component';
+import { NotFoundPageComponent } from './screens/not-found-page/not-found-page.component';
 
 // All prod and non prod
 const interceptors = [
@@ -56,7 +59,10 @@ if (!environment.production) {
     HomepageComponent,
     NewsListingPageComponent,
     NewsDetailPageComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    PrivacyPolicyPageComponent,
+    ContactPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
