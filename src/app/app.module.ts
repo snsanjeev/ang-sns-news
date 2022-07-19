@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
@@ -31,6 +31,8 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
 import { PrivacyPolicyPageComponent } from './screens/privacy-policy-page/privacy-policy-page.component';
 import { ContactPageComponent } from './screens/contact-page/contact-page.component';
 import { NotFoundPageComponent } from './screens/not-found-page/not-found-page.component';
+import { LoginPageComponent } from './screens/login-page/login-page.component';
+import { RegisterPageComponent } from './screens/register-page/register-page.component';
 
 // All prod and non prod
 const interceptors = [
@@ -62,14 +64,17 @@ if (!environment.production) {
     UsersTableComponent,
     PrivacyPolicyPageComponent,
     ContactPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     //{provide: HTTP_INTERCEPTORS, useClass : FakeApiInterceptor, multi:true}

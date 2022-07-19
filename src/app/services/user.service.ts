@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, from, interval, Observable, throwError } from 'rxjs';
-import User from 'src/interfaces/user';
+import User, { Login, RegisterForm} from 'src/interfaces/user';
 
 import { of } from "rxjs"
 import { map } from 'rxjs/operators';
@@ -15,6 +15,14 @@ export class UserService {
 
   constructor(private http: HttpClient, private config: ConfigurationService) {
 
+  }
+
+  public login( form : Login ){
+    return this.http.post(this.config.URLS.LOGIN, form)
+  }
+
+  public register(form : RegisterForm) {
+    return this.http.post(this.config.URLS.REGISTER, form)
   }
 
   // public user : BehaviorSubject<User> = new BehaviorSubject({ email : "" })
