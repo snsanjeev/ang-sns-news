@@ -35,6 +35,7 @@ import { LoginPageComponent } from './screens/login-page/login-page.component';
 import { RegisterPageComponent } from './screens/register-page/register-page.component';
 import { ApplyLoanFormComponent } from './components/apply-loan/apply-loan.component';
 import { ApplyLoanComponent } from './screens/apply-loan/apply-loan.component';
+import { VerifyTaxIdDirective } from './directives/verify-tax-id.directive';
 
 // All prod and non prod
 const interceptors = [
@@ -70,7 +71,8 @@ if (!environment.production) {
     LoginPageComponent,
     RegisterPageComponent,
     ApplyLoanComponent,
-    ApplyLoanFormComponent
+    ApplyLoanFormComponent,
+    VerifyTaxIdDirective
   ],
   imports: [
     BrowserModule,
