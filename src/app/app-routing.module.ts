@@ -9,6 +9,7 @@ import { NewsListingPageComponent } from './screens/news-listing-page/news-listi
 import { PrivacyPolicyPageComponent } from './screens/privacy-policy-page/privacy-policy-page.component';
 import { NotFoundPageComponent } from './screens/not-found-page/not-found-page.component';
 import { RegisterPageComponent } from './screens/register-page/register-page.component';
+import { ApplyLoanComponent } from './screens/apply-loan/apply-loan.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
   },
   {
     path: "contact", component: ContactPageComponent, canActivate : [ AuthGuard ]
+  },
+  {
+    path: "apply-loan", component: ApplyLoanComponent, canActivate : [ AuthGuard ]
   },
   {
     path : "**", component : NotFoundPageComponent
