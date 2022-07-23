@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { RegisterForm } from 'src/interfaces/user';
 
@@ -35,13 +36,15 @@ createNewAddress() {
     pincode: new FormControl("")
   })
 }
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private router : Router) { }
 
   ngOnInit(): void {
   }
 
   register(){
-    this.user.register(this.registerForm.value as RegisterForm).subscribe(() => { })
+    this.user.register(this.registerForm.value as RegisterForm).subscribe(() => { 
+      this.router.navigateByUrl("/login");
+    })
   }
 
   addNewAddress() {
