@@ -1,3 +1,15 @@
-<h1>{{applicationName}}</h1>
-<p>{{userEmail}}</p>
-<span *ngIf="emailError">{{emailError}}</span>
+<div class="row">
+    <div class="col-6 pull-left">
+        <h1>{{applicationName}}</h1>
+        <p>{{userEmail}}</p>
+        <span *ngIf="emailError">{{emailError}}</span>
+    </div>
+    <div class="col-6 text-right ">
+        <ul>
+            <li>
+                <a routerLink="login">Login</a></li>
+            <li><a routerLink="register">Register</a></li>
+        </ul>
+    </div>
+
+</div>

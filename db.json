@@ -372,6 +372,23 @@
         "pincode": "56565"
       },
       "id": 1
+    },
+    {
+      "email": "snsanju@gmail.com",
+      "password": "$2a$10$Mnb70NwH/dkS94IulToFruDAbEC/mEUeqX/J8By./LNKdI5NLwCfC",
+      "firstName": "sss1",
+      "lastName": "sss2",
+      "address": [
+        {
+          "city": "bangalore",
+          "pincode": "560103"
+        },
+        {
+          "city": "bangaluru",
+          "pincode": "560103"
+        }
+      ],
+      "id": 2
     }
   ],
   "ads": [],
