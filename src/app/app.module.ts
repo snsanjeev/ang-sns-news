@@ -37,6 +37,7 @@ import { ApplyLoanFormComponent } from './components/apply-loan/apply-loan.compo
 import { ApplyLoanComponent } from './screens/apply-loan/apply-loan.component';
 import { VerifyTaxIdDirective } from './directives/verify-tax-id.directive';
 import { TaxidFormatDirective } from './directives/taxid-format.directive';
+import { ApplyAccountReactiveFormComponent } from './components/apply-account-reactive-form/apply-account-reactive-form.component';
 
 // All prod and non prod
 const interceptors = [
@@ -74,7 +75,8 @@ if (!environment.production) {
     ApplyLoanComponent,
     ApplyLoanFormComponent,
     VerifyTaxIdDirective,
-    TaxidFormatDirective
+    TaxidFormatDirective,
+    ApplyAccountReactiveFormComponent
   ],
   imports: [
     BrowserModule,
