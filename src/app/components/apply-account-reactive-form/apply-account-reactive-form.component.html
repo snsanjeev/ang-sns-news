@@ -1,60 +1,82 @@
 <div>
-    <form>
+    <form [formGroup]="accountForm" (ngSubmit)="applyAccount()">
         <p>
             <label>
                 firstName
-                <input type="text" name="firstName" />      
+                <input type="text" name="firstName" formControlName="firstName" />   
+                <span *ngIf="firstName?.errors && firstName?.touched" class="error">
+                    <span *ngIf="firstName?.errors?.['required']">This is required.</span>
+                </span>      
             </label>
         </p>
 
         <p>
             <label>
                 lastName
-                <input type="text" name="lastName" />
-
+                <input type="text" name="lastName"  formControlName="lastName" />
+                <span *ngIf="lastName?.errors && lastName?.touched" class="error">
+                    <span *ngIf="lastName?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
         <p>
             <label>
                 email
-                <input type="email" name="email" />
-
+                <input type="email" name="email" formControlName="email" />
+                <span *ngIf="email?.errors && email?.touched" class="error">
+                    <span *ngIf="email?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
         <p>
             <label>
                 password
-                <input type="password" name="password" />
+                <input type="password" name="password"  formControlName="password" />
+                <span *ngIf="password?.errors && password?.touched" class="error">
+                    <span *ngIf="password?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
         <p>
             <label>
                 mobileNo
-                <input type="text"  name="mobileNo" />
+                <input type="text"  name="mobileNo" formControlName="mobileNo" />
+                <span *ngIf="mobileNo?.errors && mobileNo?.touched" class="error">
+                    <span *ngIf="mobileNo?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
         <p>
             <label>
                 age
-                <input type="text" name="age" />
+                <input type="text" name="age" formControlName="age" />
+                <span *ngIf="age?.errors && age?.touched" class="error">
+                    <span *ngIf="age?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
         <p>
             <label>
                 taxId
-                <input type="text" name="taxId" />
+                <input type="text" name="taxId" formControlName="taxId" />
+                <span *ngIf="taxId?.errors && taxId?.touched" class="error">
+                    <span *ngIf="taxId?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
         <p>
             <label>
                 checkCredit
-                <input type="checkbox" name="checkCredit" />
+                <input type="checkbox" name="checkCredit" formControlName="checkCredit" />
+                <span *ngIf="checkCredit?.errors && checkCredit?.touched" class="error">
+                    <span *ngIf="checkCredit?.errors?.['required']">This is required.</span>
+                </span> 
             </label>
         </p>
 
