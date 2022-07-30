@@ -4,9 +4,9 @@
             <label>
                 firstName
                 <input type="text" name="firstName" formControlName="firstName" />   
-                <span *ngIf="firstName?.errors && firstName?.touched" class="error">
-                    <span *ngIf="firstName?.errors?.['required']">This is required.</span>
-                </span>      
+                <span *ngIf="getControl('firstName')?.errors && getControl('firstName')?.touched" class="error">
+                    <span *ngIf="getControl('firstName')?.errors?.['required']">This is required.</span>
+                </span>   
             </label>
         </p>
 

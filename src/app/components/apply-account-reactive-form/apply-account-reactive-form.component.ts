@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { FormsService } from 'src/app/services/forms.service';
+import { ValidateTaxIDFormat } from 'src/app/validators/validatetaxidformat';
 
 @Component({
   selector: 'sns-apply-account-reactive-form',
@@ -20,7 +22,7 @@ export class ApplyAccountReactiveFormComponent implements OnInit {
     password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.maxLength(32)]),
     mobileNo: new FormControl("", [Validators.required, Validators.maxLength(10)]),
     age: new FormControl("", [Validators.required]),
-    taxId: new FormControl("", [Validators.required]),
+    taxId: new FormControl("", [Validators.required, ValidateTaxIDFormat]),
     checkCredit: new FormControl("", [Validators.required]),
     manager: new FormControl("", [Validators.required])
   })
@@ -57,6 +59,7 @@ export class ApplyAccountReactiveFormComponent implements OnInit {
   }
 
   get age() {
+
     return this.accountForm.get("age")
   }
 
@@ -66,5 +69,9 @@ export class ApplyAccountReactiveFormComponent implements OnInit {
 
   get checkCredit() {
     return this.accountForm.get("checkCredit")
+  }
+
+  getControl(name : string) : AbstractControl | null {
+    return this.accountForm.get(name)
   }
 }

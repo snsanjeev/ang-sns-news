@@ -1,5 +1,6 @@
 import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { ValidateTaxIDFormat } from '../validators/validatetaxidformat';
 
 @Directive({
   selector: '[snsTaxidFormat]',
@@ -15,14 +16,7 @@ export class TaxidFormatDirective implements Validator {
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     
-    const value = control.value as string
-    const formatRegex = /[a-zA-z]{5}[0-9]{4}[a-zA-Z]{1}/
-
-    if (value && value.match(formatRegex)){
-      return null
-    }
-
-    return { taxidFormat : true }
+    return ValidateTaxIDFormat(control)
   }
 
   constructor() { }
