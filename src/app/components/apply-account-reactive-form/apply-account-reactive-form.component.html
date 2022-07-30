@@ -81,6 +81,18 @@
         </p>
 
         <p>
+            <label>
+                manager
+                <select name="manager" formControlName="manager">
+                    <option value="">Select Mananger</option>
+
+                    <option *ngFor="let manager of managers" value="{{ manager.name  }}">{{ manager.name }}</option>
+
+                </select>
+            </label>
+        </p>
+
+        <p>
             <!-- <button [disabled]="applyLoanForm.form.status === 'INVALID'" type="submit">Submit</button> -->
             <button type="submit">Submit</button>
         </p>
