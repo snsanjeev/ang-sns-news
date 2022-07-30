@@ -27,6 +27,7 @@
                 <span *ngIf="email?.errors && email?.touched" class="error">
                     <span *ngIf="email?.errors?.['required']">This is required.</span>
                 </span> 
+                <span class="error" *ngIf="email?.errors?.['pattern']">email format is wrong</span>
             </label>
         </p>
 
