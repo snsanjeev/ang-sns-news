@@ -1,5 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { VerifyTaxID } from '../validators/verifytaxid';
 
 @Directive({
   selector: '[verifyTaxId]',
@@ -16,17 +17,19 @@ export class VerifyTaxIdDirective implements Validator {
 
   validate(form: AbstractControl<any, any>): ValidationErrors | null {
     if (this.controls){
-      const lastName = this.controls[0]
-      const taxId = this.controls[1]
+      return VerifyTaxID(this.controls[0], this.controls[1])(form);
 
-      const lastNameControl = form.get(lastName)?.value?.slice(0,1).toLowerCase()
-      const taxIdControl = form.get(taxId)?.value.slice(4,5).toLowerCase()
+      // const lastName = this.controls[0]
+       // const taxId = this.controls[1];
 
-      if (lastNameControl === taxIdControl) {
-        return null
-      }
+      // const lastNameControl = form.get(lastName)?.value?.slice(0,1).toLowerCase()
+      // const taxIdControl = form.get(taxId)?.value.slice(4,5).toLowerCase()
 
-      return { taxId: true}
+      // if (lastNameControl === taxIdControl) {
+      //   return null
+      // }
+
+      // return { taxId: true}
     }
     return null
   }

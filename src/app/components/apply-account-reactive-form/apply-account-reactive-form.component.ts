@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 
 import { FormsService } from 'src/app/services/forms.service';
 import { ValidateTaxIDFormat } from 'src/app/validators/validatetaxidformat';
+import { VerifyTaxID } from 'src/app/validators/verifytaxid';
 
 @Component({
   selector: 'sns-apply-account-reactive-form',
@@ -25,7 +26,8 @@ export class ApplyAccountReactiveFormComponent implements OnInit {
     taxId: new FormControl("", [Validators.required, ValidateTaxIDFormat]),
     checkCredit: new FormControl("", [Validators.required]),
     manager: new FormControl("", [Validators.required])
-  })
+  }, [ VerifyTaxID("lastName", "taxId") ])
+
   constructor(private forms : FormsService) { }
 
   ngOnInit(): void {
