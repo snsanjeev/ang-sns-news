@@ -9,15 +9,18 @@ import User from 'src/interfaces/user';
 })
 export class HeaderComponent implements OnInit {
 
+  info : any;
   public applicationName = "SNS News"
   public userEmail = ""
-  public emailError : string | null = null
+  public emailError: string | null = null
 
   constructor(private userService: UserService) { }
 
+  userInfo !: any;
+
   ngOnInit(): void {
     this.userService.user
-    .subscribe((response : User)=>{
+    .subscribe((response: User) => {
       console.log(response, "user")
       this.userEmail = response.email
     },(error : string) => {
@@ -25,9 +28,17 @@ export class HeaderComponent implements OnInit {
       this.emailError = error
     })
 
-    this.userService.oneSecEvent.subscribe(()=>{
+    this.userService.oneSecEvent.subscribe(() => {
       //console.log(new Date().toISOString())
     })
+
+    this.userService.info.subscribe((info)=>{
+      this.info = info;
+    })
+  }
+
+  logout() {
+    this.userService.logout();
   }
 
 }

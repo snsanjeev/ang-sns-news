@@ -7,22 +7,40 @@ import { map } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { ConfigurationService } from './configuration.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private config: ConfigurationService) {
+  info : BehaviorSubject<any> = new BehaviorSubject(null)
+
+  constructor(private http: HttpClient, private config: ConfigurationService, private router : Router) {
+     const userinfo = window.sessionStorage.getItem("userinfo");
+     if(userinfo)
+      {
+          this.info.next(JSON.parse(userinfo))
+      }
 
   }
-
   public login( form : Login ){
     //return this.http.post(this.config.URLS.LOGIN, form)
     this.http.post(this.config.URLS.LOGIN, form)
       .subscribe((response : any) => {
-        window.sessionStorage.setItem("accessToken", response.accessToken)
+        this.info.next(response)
+        const { accessToken, ...userInfo } = response
+        window.sessionStorage.setItem("accessToken", accessToken)
+        window.sessionStorage.setItem("userinfo", JSON.stringify(userInfo));
+        this.router.navigateByUrl("/");
     })
+  }
+
+  public logout(){
+    this.info.next(null);
+    window.sessionStorage.removeItem("accessToken");
+    window.sessionStorage.removeItem("userinfo");
+    this.router.navigateByUrl("/");
   }
 
   public register(form: RegisterForm) {

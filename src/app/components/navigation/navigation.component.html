@@ -1,5 +1,14 @@
 <ul>
-    <li *ngFor="let link of navigation">
-        <a [routerLink]="link.path">{{link.name}}</a>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/news/sports">Sports</a></li>
+    <li><a routerLink="/news/politics">Politics</a></li>
+    <li><a routerLink="/news/health">Health</a></li>
+    <li><a routerLink="/news/international">International</a></li>
+    <li *ngIf="info"><a routerLink="/privacy-policy">Privacy</a></li>
+    <li *ngIf="info"><a routerLink="/contact">Contact</a></li>
+    <li *ngIf="info"><a (click)="logout()">{{info.user.email}}, Logout</a></li>
+    <li *ngIf="!info"><a routerLink="/login">Login</a></li>
+    <li *ngIf="!info"><a routerLink="/register">Register</a>
     </li>
+
 </ul>

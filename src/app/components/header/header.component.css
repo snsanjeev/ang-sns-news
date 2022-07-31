@@ -15,8 +15,10 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 150px;
+    width: auto;
     margin-left: auto !important;
+    
+    float: right;
 }
 
 ul li {

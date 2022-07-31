@@ -6,9 +6,9 @@
     </div>
     <div class="col-6 text-right ">
         <ul>
-            <li>
-                <a routerLink="login">Login</a></li>
-            <li><a routerLink="register">Register</a></li>
+            <li *ngIf="info"><a (click)="logout()">{{info.user.email}}, Logout</a></li>
+            <li *ngIf="!info"><a routerLink="login">Login</a></li>
+            <li *ngIf="!info"><a routerLink="register">Register</a></li>
         </ul>
     </div>
 
