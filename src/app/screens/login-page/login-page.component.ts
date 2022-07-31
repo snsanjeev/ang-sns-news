@@ -20,13 +20,7 @@ export class LoginPageComponent implements OnInit {
 
   login() {
     console.log(this.form)
-    this.user.login(this.form).pipe(catchError((err) => {
-      this.serverError = "Error while login."
-      return err
-    }))
-      .subscribe(() => {
-
-      })
+    this.user.login(this.form)
   }
 
 }

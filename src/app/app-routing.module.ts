@@ -28,7 +28,7 @@ const routes: Routes = [
     path : "news/details/:id", component: NewsDetailPageComponent
   },
   {
-    path: "privacy-policy", component: PrivacyPolicyPageComponent
+    path: "privacy-policy", component: PrivacyPolicyPageComponent, canActivate : [AuthGuard]
   },
   {
     path: "contact", component: ContactPageComponent, canActivate : [ AuthGuard ]

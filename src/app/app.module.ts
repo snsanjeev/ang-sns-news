@@ -38,10 +38,12 @@ import { ApplyLoanComponent } from './screens/apply-loan/apply-loan.component';
 import { VerifyTaxIdDirective } from './directives/verify-tax-id.directive';
 import { TaxidFormatDirective } from './directives/taxid-format.directive';
 import { ApplyAccountReactiveFormComponent } from './components/apply-account-reactive-form/apply-account-reactive-form.component';
+import { AccessInterceptor } from './services/access.interceptor';
+
 
 // All prod and non prod
 const interceptors = [
-
+  { provide : HTTP_INTERCEPTORS, useClass : AccessInterceptor, multi : true }
 ];
 
 if (!environment.production) {

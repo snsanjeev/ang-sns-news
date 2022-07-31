@@ -17,7 +17,10 @@ export class VerifyTaxIdDirective implements Validator {
 
   validate(form: AbstractControl<any, any>): ValidationErrors | null {
     if (this.controls){
-      return VerifyTaxID(this.controls[0], this.controls[1])(form);
+      // const formValidator =  VerifyTaxID(this.controls[0], this.controls[1])
+      // formValidator(form);
+
+        return VerifyTaxID(this.controls[0], this.controls[1])(form)
 
       // const lastName = this.controls[0]
        // const taxId = this.controls[1];

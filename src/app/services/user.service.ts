@@ -18,10 +18,14 @@ export class UserService {
   }
 
   public login( form : Login ){
-    return this.http.post(this.config.URLS.LOGIN, form)
+    //return this.http.post(this.config.URLS.LOGIN, form)
+    this.http.post(this.config.URLS.LOGIN, form)
+      .subscribe((response : any) => {
+        window.sessionStorage.setItem("accessToken", response.accessToken)
+    })
   }
 
-  public register(form : RegisterForm) {
+  public register(form: RegisterForm) {
     return this.http.post(this.config.URLS.REGISTER, form)
   }
 
